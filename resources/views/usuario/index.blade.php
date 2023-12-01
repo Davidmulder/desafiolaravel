@@ -15,8 +15,14 @@
     @foreach ($usuario as $usuario)   
     
    
-    <li class="list-group-item d-flex justify-content-between align-items-center" >
-    {{$usuario->name}}  --  {{$usuario->email}}
+    <li class="list-group-item d-flex  align-items-center" >
+    
+
+    <div class="ms-2 me-auto">
+    
+      <div class="fw-bold"> {{$usuario->name}} </div>
+      {{$usuario->email}}
+    </div>
      </li> 
     @endforeach
     

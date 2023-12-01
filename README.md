@@ -1,7 +1,13 @@
 
 #  Desenvolvedor PHP + Laravel
 
+<br>
+  <img src="https://avatars.githubusercontent.com/u/34238744?v=4" alt="TinDev" width="120">
+<br>
 
+<img src="img/01.png" alt="mobile" align="center" height="425"><br><br>  
+
+  <img src="img/02.png" alt="mobile" align="center" height="425"><br><br>
 
 ### Versão Laravel 9.0 
 Versão e Docker e git
@@ -24,17 +30,18 @@ Página de Cadastro (Laravel/Blade):
 
 
 Validações (Laravel):
-```sh
-rm -rf .git/
-```
 
-
-Crie o Arquivo .env
 ```sh
 • Utilize as ferramentas de validação fornecidas pelo Laravel para validar os
 campos do formulário.
 • Exiba mensagens de erro apropriadas quando os campos não atenderem às
 regras especificadas acima.
+```
+Validores criados
+```sh
+No formulario [UsersFormRequest.php]
+
+Na Api [ApiUsersRequest.php]
 ```
 
 
@@ -55,6 +62,33 @@ API de Back-end (Laravel):
 erro) no formato JSON.
 ```
 
+```sh
+Todos os usuarios
+GET
+http://localhost:8989/api/users/ 
+Busca pelo name
+http://localhost:8989/api/users/?name=david
+busca por id 
+http://localhost:8989/api/users/id
+
+cadastro de usuario
+POST
+http://localhost:8989/api/users/
+<head>
+name
+email
+password
+[ApiUsersRequest.php] falidar os dados
+
+
+Login de usuarios
+POST
+http://localhost:8989/api/login
+email: 
+senha: 
+response : Toker <200>  | Unauthorized <401>
+```
+
 
 Testes Unitários (Laravel/PHP):
 ```sh
@@ -70,6 +104,8 @@ Tratamento de Erros (Laravel):
 Implemente um tratamento de erro apropriado na API Laravel para lidar com
 falhas na comunicação com o front-end.
 • Retorne respostas de erro no formato JSON.
+
+UsersFormRequest.php
 ```
 
 

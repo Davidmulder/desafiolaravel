@@ -32,7 +32,7 @@ Route::get('/users', [ApiUsersController::class, 'index']);
 //postagem de usuario
 Route::post('/users', [ApiUsersController::class, 'store']);
 
-// List uma usuario
+// List um usuario
 Route::get('/users/{users}', [ApiUsersController::class, 'show']);
 
 
