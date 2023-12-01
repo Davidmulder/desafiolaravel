@@ -6,7 +6,6 @@ services:
         build:
             context: .
             dockerfile: Dockerfile
-        # image: especializati/laravel9-app
         restart: unless-stopped
         working_dir: /var/www/
         volumes:
@@ -14,55 +13,81 @@ services:
         depends_on:
             - redis
         networks:
-            - laravel-9
+            - laravel
 
     # nginx
     nginx:
         image: nginx:alpine
         restart: unless-stopped
-        ports: 
+        ports:
             - "8989:80"
-        volumes: 
+        volumes:
             - ./:/var/www
             - ./docker/nginx/:/etc/nginx/conf.d/
-        networks: 
-            - laravel-9
+        networks:
+            - laravel
 
-    # db mysql
-    mysql:
-        image: mysql:5.7.22
-        restart: unless-stopped
-        environment:
-            MYSQL_DATABASE: ${DB_DATABASE}
-            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
-            MYSQL_PASSWORD: ${DB_PASSWORD}
-            MYSQL_USER: ${DB_USERNAME}
+    # db mysql    
+    #db:
+    #    image: mysql:5.7.22
+    #    restart: unless-stopped
+    #    environment:
+    #        MYSQL_DATABASE: ${DB_DATABASE:-laravel}
+    #        MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-root}
+    #        MYSQL_PASSWORD: ${DB_PASSWORD:-userpass}
+    #        MYSQL_USER: ${DB_USERNAME:-username}
+    #    volumes:
+    #        - ./.docker/mysql/dbdata:/var/lib/mysql
+    #    ports:
+    #        - "3388:3306"
+    #    networks:
+    #        - laravel
+
+    #bd postgre
+    db:
+        image: postgres
+        container_name: teste-pgsql
+        restart: unless-stopped        
+        environment:            
+            POSTGRES_USER: ${DB_USERNAME:-home}
+            POSTGRES_PASSWORD: ${DB_PASSWORD:-12}
+            POSTGRES_DB: ${DB_DATABASE:-laravel}
+
+        expose:    
+            - 5432
         volumes:
-            - ./.docker/mysql/dbdata:/var/lib/mysql
+            - ./.docker/postgresql/data:/var/lib/postgresql/data
         ports:
-            - "3388:3306"
+            - "5432:5432"
         networks:
-            - laravel-9
-
-    # queue
-    queue:
-        image: especializati/laravel9-app
-        restart: unless-stopped
-        command: "php artisan queue:work"
-        volumes:
-            - ./:/var/www
-        depends_on:
-            - redis
-            - app
-        networks:
-            - laravel-9
+            - laravel
+                
+            
 
     # redis
     redis:
         image: redis:latest
         networks:
-            - laravel-9
+            - laravel
+
+        
+    adminer:
+        image: adminer
+        restart: unless-stopped
+        environment:
+            - ADMINER_DEFAULT_SERVER=db
+            - ADMINER_DESIGN=price
+        ports:
+            - 8080:8080
+
+        networks:
+            - laravel    
+          
+             
 
 networks:
-    laravel-9:
+    laravel:
         driver: bridge
+
+
+

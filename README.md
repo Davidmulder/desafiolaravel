@@ -1,24 +1,29 @@
 
-# Setup Docker Para Projetos Laravel
-[Assine a Academy, e Seja VIP!](https://academy.especializati.com.br)
+#  Desenvolvedor PHP + Laravel
 
-### Passo a passo
-Clone Repositório
+
+
+### Versão Laravel 9.0 
+Versão e Docker e git
 ```sh
-git clone https://github.com/especializati/setup-docker-laravel.git my-project
+Feito banco de dados Sqlite 
 ```
 ```sh
-cd my-project/
-```
-
-
-Alterne para a branch laravel 9.x
-```sh
-git checkout laravel-9-com-php-8
+Obs: Por motivo curto tempo , não feito no postgree
 ```
 
 
-Remova o versionamento (opcional)
+Página de Cadastro (Laravel/Blade):
+```sh
+• Crie uma página de registro de usuário com os seguintes campos:
+• Nome (obrigatório, mínimo de 3 caracteres, máximo de 50 caracteres).
+• E-mail (obrigatório, deve ser um e-mail válido).
+• Senha (obrigatória, mínimo de 6 caracteres, máximo de 20 caracteres).
+• Confirmação de Senha (obrigatória e deve coincidir com a senha).
+```
+
+
+Validações (Laravel):
 ```sh
 rm -rf .git/
 ```
@@ -26,53 +31,51 @@ rm -rf .git/
 
 Crie o Arquivo .env
 ```sh
-cp .env.example .env
+• Utilize as ferramentas de validação fornecidas pelo Laravel para validar os
+campos do formulário.
+• Exiba mensagens de erro apropriadas quando os campos não atenderem às
+regras especificadas acima.
 ```
 
 
-Atualize as variáveis de ambiente do arquivo .env
+Modelo e Migração (Laravel):
 ```dosini
-APP_NAME="Especializa Ti"
-APP_URL=http://localhost:8989
-
-DB_CONNECTION=mysql
-DB_HOST=mysql
-DB_PORT=3306
-DB_DATABASE=nome_que_desejar_db
-DB_USERNAME=root
-DB_PASSWORD=root
-
-CACHE_DRIVER=redis
-QUEUE_CONNECTION=redis
-SESSION_DRIVER=redis
-
-REDIS_HOST=redis
-REDIS_PASSWORD=null
-REDIS_PORT=6379
+• Crie um modelo e uma migração para armazenar os usuários no banco de dados
+SQLite.
+• Configure a tabela para armazenar as informações dos usuários.
 ```
 
 
-Suba os containers do projeto
+API de Back-end (Laravel):
 ```sh
-docker-compose up -d
+• Crie uma API RESTful em Laravel para processar o registro de usuários.
+• Valide os dados recebidos da solicitação, incluindo a confirmação de senha.
+• Armazene os usuários registrados no banco de dados PostgreSQL.
+• Retorne uma resposta apropriada para o front-end (por exemplo, sucesso ou
+erro) no formato JSON.
 ```
 
 
-Acesse o container app com o bash
+Testes Unitários (Laravel/PHP):
 ```sh
-docker-compose exec app bash
+• Escreva pelo menos um teste unitário para a API Laravel para garantir que os
+dados sejam validados corretamente e armazenados no banco de dados
+PostgreSQL.
+• Utilize a ferramenta de teste do Laravel para isso.
 ```
 
 
-Instale as dependências do projeto
+Tratamento de Erros (Laravel):
 ```sh
-composer install
+Implemente um tratamento de erro apropriado na API Laravel para lidar com
+falhas na comunicação com o front-end.
+• Retorne respostas de erro no formato JSON.
 ```
 
 
-Gere a key do projeto Laravel
+Repositório Público no GitHub:
 ```sh
-php artisan key:generate
+https://github.com/Davidmulder/desafiolaravel.git
 ```
 
 
