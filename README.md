@@ -1,11 +1,12 @@
 
 #  Desenvolvedor PHP + Laravel
 
+<h1 align="center">
 <br>
   <img src="https://avatars.githubusercontent.com/u/34238744?v=4" alt="TinDev" width="120">
 <br>
-
-<img src="img/01.png" alt="mobile" align="center" height="425"><br><br>  
+</h1>
+<img src="img/01.png" alt="mobile" align="center" height="542 px"><br><br>  
 
   <img src="img/02.png" alt="mobile" align="center" height="425"><br><br>
 
